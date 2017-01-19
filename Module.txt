@@ -1,0 +1,12 @@
+﻿Name: Onefourseven Swagger
+AntiForgery: enabled
+Author: Onefourseven Labs Team
+Website: http://onefourseven.pl
+Version: 0.1
+OrchardVersion: 1.9
+Description: Enabling Swagger, WebApi GUI
+Features:
+    Onefourseven.Swagger:
+		Name: Swagger
+        Description: Enabling Swagger, WebApi GUI
+		Category: Developer
