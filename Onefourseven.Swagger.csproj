@@ -10,8 +10,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Onefourseven.Swagger</RootNamespace>
-    <AssemblyName>Onefourseven.Swagger</AssemblyName>
+    <RootNamespace>Orchard.Swagger</RootNamespace>
+    <AssemblyName>Orchard.Swagger</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <FileUpgradeFlags>
@@ -25,6 +25,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -86,7 +87,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="Handlers\CustomApiExplorer.cs" />
     <Compile Include="Handlers\OrchardShellEvents.cs" />
+    <Compile Include="Handlers\SwaggerApiDescription.cs" />
+    <Compile Include="Handlers\SwaggerBoundTemplate.cs" />
+    <Compile Include="Handlers\SwaggerHttpParsedRoute.cs" />
+    <Compile Include="Handlers\SwaggerHttpRouteParser.cs" />
+    <Compile Include="Handlers\SwaggerPathContentSegment.cs" />
+    <Compile Include="Handlers\SwaggerPathLiteralSubsegment.cs" />
+    <Compile Include="Handlers\SwaggerPathParameterSubSegment.cs" />
+    <Compile Include="Handlers\SwaggerPathSagment.cs" />
+    <Compile Include="Handlers\SwaggerPathSeparatorSegment.cs" />
+    <Compile Include="Handlers\SwaggerPathSubsegment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
