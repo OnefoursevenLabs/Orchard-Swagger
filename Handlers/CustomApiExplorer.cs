@@ -63,12 +63,10 @@ namespace Orchard.Swagger
             IHttpControllerSelector controllerSelector = _config.Services.GetHttpControllerSelector();
             IDictionary<string, HttpControllerDescriptor> controllerMappings = controllerSelector.GetControllerMapping();
             //_controllerInfoCache.Value.ToDictionary(c => c.Key, c => c.Value, StringComparer.OrdinalIgnoreCase);
-            //api控制器
             if (controllerMappings != null)
             {
                 string hcNamespace = string.Empty;
                 string routetemplate = string.Empty;
-                //路由模板
                 foreach (var route in _config.Routes)
                 {
                     routetemplate = route.RouteTemplate.Split('/')[1];

@@ -90,7 +90,7 @@ namespace Orchard.Swagger
                        // override with any value.
                        //
                        //c.GroupActionsBy(apiDesc => apiDesc.GetControllerAndActionAttributes<ControllerGroupAttribute>().Any() ? apiDesc.GetControllerAndActionAttributes<ControllerGroupAttribute>().First().Useage : "");
-                       //为文档按照Attribute分类
+                       //Categorize documents by Attribute 
                        //c.GroupActionsBy((apiDesc) =>
                        //{
                        //    var group = apiDesc.GetControllerAndActionAttributes<SwaggerControllerGroupAttribute>();
@@ -113,7 +113,7 @@ namespace Orchard.Swagger
                        // more Xml comment files.
                        //
                        //c.IncludeXmlComments(GetXmlCommentsPath());
-                       //设置接口描述xml路径地址
+                       //Set the interface to describe the XML path address 
                        c.IncludeXmlComments(string.Format("{0}/bin/XmlComments.XML", System.AppDomain.CurrentDomain.BaseDirectory));
 
                        // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
@@ -204,7 +204,7 @@ namespace Orchard.Swagger
                     // "Logical Name" is passed to the method as shown above.
                     //
                     //c.InjectJavaScript(thisAssembly, "Swashbuckle.Dummy.SwaggerExtensions.testScript1.js");
-                    //路径规则，项目命名空间.文件夹名称.js文件名称，汉化
+                    //Path rules, project namespace. Folder name. Js file name, 
                     //c.InjectJavaScript(thisAssembly, "SwaggerDemo.Scripts.swaggerui.swagger_lang.js");
 
                     // The swagger-ui renders boolean data types as a dropdown. By default, it provides "true" and "false"
@@ -263,7 +263,7 @@ namespace Orchard.Swagger
             {
                 var cacheKey = String.Format("{0}_{1}", rootUrl, apiVersion);
                 SwaggerDocument srcDoc = null;
-                //只读取一次
+                //Read only once 
                 if (!_cache.TryGetValue(cacheKey, out srcDoc))
                 {
 
@@ -281,9 +281,9 @@ namespace Orchard.Swagger
             }
 
             /// <summary>
-            /// 从API文档中读取控制器描述
+            /// Read the controller description from the API document 
             /// </summary>
-            /// <returns>所有控制器描述</returns>
+            /// <returns>All controller descriptions </returns>
             public static ConcurrentDictionary<string, string> GetControllerDesc(HashSet<string> moduleList)
             {
                 string xmlpath = String.Format("{0}/bin/XmlComments.XML", AppDomain.CurrentDomain.BaseDirectory);
@@ -301,17 +301,17 @@ namespace Orchard.Swagger
                         type = node.Attributes["name"].Value;
                         if (type.StartsWith("T:"))
                         {
-                            //控制器
+                            //controller 
                             arrPath = type.Split(':')[1].Split('.');
                             length = arrPath.Length;
                             controllerName = arrPath[length - 1];
                             if (controllerName.EndsWith("Controller"))
                             {
-                                //模块信息
+                                //Module information 
                                 var moduleName = arrPath[length-3]+ arrPath[length - 2];
                                 moduleList.Add(moduleName);
 
-                                //获取控制器注释
+                                //Get the controller comment 
                                 summaryNode = node.SelectSingleNode("summary");
                                 string key = controllerName.Remove(controllerName.Length - cCount, cCount);
                                 if (summaryNode != null && !String.IsNullOrEmpty(summaryNode.InnerText) && !controllerDescDict.ContainsKey(key))
